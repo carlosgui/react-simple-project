@@ -15,3 +15,5 @@ You may also see any lint errors in the console.
 ## More
 
 This is a exemple of a simple API fetch and work with data returned for that API, this project has a simple css code style, just to be mroe "fancy".
+
+node v20.11.1
