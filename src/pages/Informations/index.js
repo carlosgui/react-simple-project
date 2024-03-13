@@ -1,38 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import "./index.css";
 
-export default function Informations() {
+export default function Informations({ nutri }) {
+  const { id } = useParams();
+  const [content, setContent] = useState({});
+  const item = [];
+
+  nutri.map((el, index) => {
+    if (el.id === parseInt(id)) {
+      return item.push(el);
+    }
+  });
+
+  useEffect(() => {
+    setContent(item[0]);
+  }, []);
+
   return (
     <div>
       <div className="backButton">
         <Link to="/"> Voltar </Link>
       </div>
       <div className="containerInfo">
-        <h1>Lorem Ipsum</h1>
-        <span>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </span>
+        <h1>{content.titulo}</h1>
+        <h3>categoria: {content.categoria}</h3>
         <br />
+        <span>{content.subtitulo}</span>
         <br />
-        <span>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </span>
       </div>
     </div>
   );

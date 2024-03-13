@@ -10,7 +10,7 @@ export default function Home(props) {
             <h1>{titulo}</h1>
             <img alt={titulo} src={capa} />
             <p>{subtitulo}</p>
-            <Link to="/informations">
+            <Link to={"/informations/" + id}>
               <button>ACESSAR</button>
             </Link>
           </article>
