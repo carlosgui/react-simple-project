@@ -7,14 +7,14 @@ export default function Informations({ nutri }) {
   const { id } = useParams();
   const [content, setContent] = useState({});
   const item = [];
-
-  nutri.map((el, index) => {
-    if (el.id === parseInt(id)) {
-      return item.push(el);
-    }
-  });
-
   useEffect(() => {
+    nutri.map((el) => {
+      if (el.id === parseInt(id)) {
+        return item.push(el);
+      }
+      return;
+    });
+
     setContent(item[0]);
   }, []);
 
