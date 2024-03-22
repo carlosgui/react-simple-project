@@ -4,19 +4,20 @@ import { useEffect, useState } from "react";
 import "./index.css";
 
 export default function Informations({ nutri }) {
-  const { id } = useParams();
   const [content, setContent] = useState({});
-  const item = [];
+  const { id } = useParams();
+
   useEffect(() => {
-    nutri.map((el) => {
+    let item = [];
+    this.nutri.map((el) => {
       if (el.id === parseInt(id)) {
         return item.push(el);
       }
-      return;
+      return [];
     });
 
     setContent(item[0]);
-  }, []);
+  }, [id]);
 
   return (
     <div>
