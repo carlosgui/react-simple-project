@@ -9,7 +9,7 @@ export default function Informations({ nutri }) {
 
   useEffect(() => {
     let item = [];
-    this.nutri.map((el) => {
+    nutri.map((el) => {
       if (el.id === parseInt(id)) {
         return item.push(el);
       }
@@ -17,7 +17,7 @@ export default function Informations({ nutri }) {
     });
 
     setContent(item[0]);
-  }, [id]);
+  }, [id, nutri]);
 
   return (
     <div>
